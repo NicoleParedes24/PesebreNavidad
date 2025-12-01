@@ -1,0 +1,69 @@
+<%@ page import="com.pesebreNavidad.negocio.Mensaje, java.util.*" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
+<%
+    // Usuario en sesión (solo mostrar, no escribir)
+    String usuarioActual = (String) session.getAttribute("nombreUsuario");
+    if(usuarioActual == null){
+        usuarioActual = "Invitado";
+    }
+
+    Mensaje dao = new Mensaje();
+    List<Mensaje> lista = dao.listar();
+%>
+
+<html>
+<head>
+    <title>Mensajes Navideños</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/mensajes.css">
+
+    <!-- JS EXTERNO -->
+    <script src="js/estrellas.js" defer></script>
+
+</head>
+
+<body class="bg-light">
+
+    
+    <div class="seccion-fondo">
+    <!-- ⭐ ANIMACIÓN ESTRELLAS -->
+    <div class="stars"></div>
+    
+
+<div class="fondo-f1-blur"></div>
+<div class="fondo-extra-blur"></div>
+
+
+<%@ include file="includes/menu.jsp" %>
+
+
+<div class="container mt-5">
+
+    <h2 class="text-center text-white mb-4">
+
+        🎄 Mensajes Navideños 🎄
+    </h2>
+
+    <% if(request.getParameter("ok") != null){ %>
+        <div class="alert alert-success text-center mb-4">
+            Mensaje guardado con éxito 🎁
+        </div>
+    <% } %>
+
+    <!-- LISTA DE MENSAJES -->
+    <% for(Mensaje m : lista){ %>
+        <div class="card p-3 mb-3 shadow-sm">
+            <strong class="text-primary"><%= m.getNombre() %></strong>
+            <p><%= m.getMensaje() %></p>
+            <small class="text-muted"><%= m.getFecha() %></small>
+        </div>
+    <% } %>
+
+   
+
+</div>
+
+</body>
+</html>
