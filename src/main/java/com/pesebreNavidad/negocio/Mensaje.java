@@ -46,6 +46,16 @@ public class Mensaje {
     }
 
 
+    // =========================================================
+    //                 CONSTRUCTOR NECESARIO
+    // =========================================================
+    public Mensaje() {}
+
+    public Mensaje(int id, String nombre, String mensaje) {
+        this.id = id;
+        this.nombre = nombre;
+        this.mensaje = mensaje;
+    }
 
 
     // =========================================================
@@ -72,8 +82,6 @@ public class Mensaje {
             return false;
         }
     }
-
-
 
 
     // =========================================================
@@ -111,4 +119,89 @@ public class Mensaje {
 
         return lista;
     }
+
+
+    // =========================================================
+    //                     MÉTODO OBTENER(ID)
+    // =========================================================
+    public Mensaje obtener(int id) {
+        Mensaje m = null;
+
+        try {
+            Conexion c = new Conexion();
+            Connection con = c.getConexion();
+
+            PreparedStatement ps = con.prepareStatement(
+                "SELECT * FROM mensajes_navidad WHERE id = ?"
+            );
+            ps.setInt(1, id);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                m = new Mensaje(
+                        rs.getInt("id"),
+                        rs.getString("nombre"),
+                        rs.getString("mensaje")
+                );
+                m.setFecha(rs.getString("fecha"));
+            }
+
+            con.close();
+
+        } catch (Exception e) {
+            System.out.println("❌ Error obteniendo mensaje: " + e.getMessage());
+        }
+
+        return m;
+    }
+
+
+    // =========================================================
+    //                     MÉTODO ACTUALIZAR
+    // =========================================================
+    public void actualizar(Mensaje m) {
+        try {
+            Conexion c = new Conexion();
+            Connection con = c.getConexion();
+
+            PreparedStatement ps = con.prepareStatement(
+                "UPDATE mensajes_navidad SET nombre=?, mensaje=? WHERE id=?"
+            );
+
+            ps.setString(1, m.getNombre());
+            ps.setString(2, m.getMensaje());
+            ps.setInt(3, m.getId());
+
+            ps.executeUpdate();
+            con.close();
+
+        } catch (Exception e) {
+            System.out.println("❌ Error actualizando mensaje: " + e.getMessage());
+        }
+    }
+
+
+    // =========================================================
+    //                     MÉTODO ELIMINAR
+    // =========================================================
+    public void eliminar(int id) {
+        try {
+            Conexion c = new Conexion();
+            Connection con = c.getConexion();
+
+            PreparedStatement ps = con.prepareStatement(
+                "DELETE FROM mensajes_navidad WHERE id = ?"
+            );
+
+            ps.setInt(1, id);
+            ps.executeUpdate();
+
+            con.close();
+
+        } catch (Exception e) {
+            System.out.println("❌ Error eliminando mensaje: " + e.getMessage());
+        }
+    }
+
 }

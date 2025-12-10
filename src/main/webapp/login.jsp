@@ -12,6 +12,7 @@
 
     <!-- TU CSS -->
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>
@@ -28,9 +29,9 @@
 <!-- =============================== -->
 <div class="contenedor-login">
 
-    <!-- IMAGEN DEL ÁRBOL -->
+    <!-- IMAGEN DEL ÁRBOL (ALT FIX) -->
     <div class="arbol-box">
-        <img src="img/arbol.png" class="arbol-img">
+        <img src="img/arbol.png" class="arbol-img" alt="" aria-hidden="true">
     </div>
 
     <!-- TARJETA DE LOGIN -->
@@ -42,14 +43,14 @@
 
             <!-- CORREO -->
             <div class="mb-3 mt-3">
-                <label class="form-label fw-semibold">Correo electrónico</label>
-                <input type="email" class="form-control input-navidad" name="correo" required />
+                <label for="correo" class="form-label fw-semibold">Correo electrónico</label>
+                <input type="email" id="correo" class="form-control input-navidad" name="correo" required>
             </div>
 
             <!-- CLAVE -->
             <div class="mb-3">
-                <label class="form-label fw-semibold">Clave</label>
-                <input type="password" class="form-control input-navidad" name="clave" required />
+                <label for="clave" class="form-label fw-semibold">Clave</label>
+                <input type="password" id="clave" class="form-control input-navidad" name="clave" required>
             </div>
 
             <!-- BOTONES -->
@@ -73,6 +74,7 @@
 <!-- ESTRELLAS ANIMADAS -->
 <div id="estrellas-container"></div>
 <script src="js/login.js"></script>
+<%@ include file="includes/footer.jsp" %>
 
 </body>
 </html>

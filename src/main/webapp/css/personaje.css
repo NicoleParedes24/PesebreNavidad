@@ -1,5 +1,7 @@
-/* ===== FONDO ===== */
-body{
+/* ============================================
+                FONDO GENERAL
+============================================ */
+body {
     background: linear-gradient(160deg, #071a16, #0b2f29, #e06d1a, #c9570f);
     background-size: cover;
     background-attachment: fixed;
@@ -9,7 +11,8 @@ body{
     padding: 0;
 }
 
-.fondo-f1-blur{
+/* Imagen de fondo blur */
+.fondo-f1-blur {
     position: fixed;
     top: 0;
     left: 0;
@@ -23,7 +26,8 @@ body{
     filter: blur(8px) brightness(1.05);
 }
 
-.fondo-naranja{
+/* Resplandor naranja */
+.fondo-naranja {
     position: fixed;
     top: 0;
     left: 0;
@@ -33,7 +37,9 @@ body{
     background: radial-gradient(circle at 50% 70%, rgba(255,150,60,0.35), transparent 60%);
 }
 
-/* ===== MENÚ ===== */
+/* ============================================
+                MENÚ SUPERIOR
+============================================ */
 .menu {
     width: 100%;
     background: rgba(255,255,255,0.07);
@@ -54,6 +60,7 @@ body{
     color: #fff !important;
 }
 
+/* Botón menú móvil */
 .menu-btn {
     display: none;
     background: rgba(255,255,255,0.12);
@@ -65,6 +72,7 @@ body{
     margin: 10px auto;
 }
 
+/* Responsive */
 @media (max-width: 992px) {
     .menu-btn { display: block; }
     .menu { display: none !important; flex-direction: column; }
@@ -72,9 +80,11 @@ body{
     .menu .nav-link { margin: 10px 0; }
 }
 
-/* ===== TARJETAS ===== */
-.card-personaje{
-    background: rgba(255,180,120,0.12);
+/* ============================================
+                TARJETAS DE PERSONAJES
+============================================ */
+.card-personaje {
+    background: rgba(255,180,120,0.22);
     border-radius: 22px;
     padding: 25px;
     text-align: center;
@@ -85,12 +95,13 @@ body{
     transition: 0.3s;
 }
 
-.card-personaje:hover{
+.card-personaje:hover {
     transform: scale(1.04);
     background: rgba(255,180,120,0.18);
 }
 
-.foto{
+/* Imagen del personaje */
+.foto {
     width: 80%;
     height: 220px;
     object-fit: cover;
@@ -99,46 +110,46 @@ body{
     margin-bottom: 15px;
 }
 
-/* ===== BOTÓN ===== */
-.btn-vermas{
-    background: #c9743a;
+/* ============================================
+                    BOTÓN
+============================================ */
+.btn-vermas {
+    background: #a4521f;
     border: none;
     padding: 8px 30px;
     color: white;
     border-radius: 10px;
 }
 
-.btn-vermas:hover{
-    background: #e68a42;
+.btn-vermas:hover {
+    background: #bb5e22;
 }
 
-/* ===== TITULOS ===== */
-.titulo{
+/* ============================================
+               TÍTULOS
+============================================ */
+.titulo {
     font-size: 55px;
     font-weight: bold;
 }
 
-.titulo-sub{
+.titulo-sub {
     font-size: 40px;
     margin-top: 40px;
 }
 
-.subtitulo{
+.subtitulo {
     font-size: 20px;
     opacity: 0.95;
 }
 
-/* 3D viewer */
+/* ============================================
+                MODELOS 3D
+============================================ */
 .model-viewer {
     width: 80%;
     height: 220px;
     border-radius: 16px;
     background: transparent !important;
     border: none !important;
-}
-
-/* Animación bolitas */
-@keyframes fall {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(120vh); opacity: 0; }
 }

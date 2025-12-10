@@ -6,14 +6,14 @@
 <title>Historia del Pesebre</title>
 
 <!-- CSS -->
-<link rel="stylesheet" href="css/historia.css">
-<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/histo.css">
+
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 
 <!-- MODEL VIEWER -->
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-
+<link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>
@@ -35,9 +35,18 @@
     <div class="row mt-5 align-items-start">
 
         <!-- VIDEO -->
+        
+        
+        
+        
         <div class="col-lg-6 col-md-12 mb-4">
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/m_geqHwKRQ8" allowfullscreen></iframe>
+               
+        <iframe 
+				  src="https://www.youtube.com/embed/m_geqHwKRQ8" 
+				  title="Video sobre la historia del pesebre"
+				  allowfullscreen>
+				</iframe>
             </div>
         </div>
 
@@ -83,17 +92,20 @@
 
         <div class="col-md-4 mb-4">
             <model-viewer src="3D/belen-v1.glb" camera-controls auto-rotate class="model-3d"></model-viewer>
-            <p class="model-title">Pesebre Tradicional</p>
+            <p class="model-title" role="heading" aria-level="3">Pesebre Tradicional</p>
+
         </div>
 
         <div class="col-md-4 mb-4">
             <model-viewer src="3D/tree.glb" camera-controls auto-rotate class="model-3d"></model-viewer>
-            <p class="model-title">Árbol de Navidad</p>
+            <p class="model-title" role="heading" aria-level="3">Arbol de navidad</p>
+
         </div>
 
         <div class="col-md-4 mb-4">
             <model-viewer src="3D/pesebre.glb" camera-controls auto-rotate class="model-3d"></model-viewer>
-            <p class="model-title">Nacimiento 3D</p>
+           <p class="model-title" role="heading" aria-level="3">Nacimiento 3D</p>
+
         </div>
 
     </div>
@@ -101,6 +113,6 @@
 </div>
 
 <!-- <script src="js/historia.js"></script> -->
-
+<%@ include file="includes/footer.jsp" %>
 </body>
 </html>

@@ -12,8 +12,9 @@
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 <!-- TU CSS -->
-<link rel="stylesheet" href="css/eventos.css">
-<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/estilosEventos.css">
+<!-- <link rel="stylesheet" href="css/login.css"> -->
+<link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>
@@ -104,23 +105,23 @@
 
 
 
-    <!-- ======================== HORARIO NOVENAS ======================== -->
+<!--     ======================== HORARIO NOVENAS ======================== -->
 
-    <div class="tarjeta-seccion mt-5">
-        <h2 class="titulo-sub">🕯 Horario de Novenas</h2>
+<!--     <div class="tarjeta-seccion mt-5"> -->
+<!--         <h2 class="titulo-sub">🕯 Horario de Novenas</h2> -->
 
-        <ul class="list-group horario-list mx-auto">
-            <li class="list-group-item">📌 *Día 1* — 7:00 PM</li>
-            <li class="list-group-item">📌 *Día 2* — 7:00 PM</li>
-            <li class="list-group-item">📌 *Día 3* — 7:00 PM</li>
-            <li class="list-group-item">📌 *Día 4* — 7:00 PM</li>
-            <li class="list-group-item">📌 *Día 5* — 7:00 PM</li>
-            <li class="list-group-item">📌 *Día 6* — 7:00 PM</li>
-            <li class="list-group-item">📌 *Día 7* — 7:00 PM</li>
-            <li class="list-group-item">📌 *Día 8* — 7:00 PM</li>
-            <li class="list-group-item">📌 *Día 9* — 7:00 PM</li>
-        </ul>
-    </div>
+<!--         <ul class="list-group horario-list mx-auto"> -->
+<!--             <li class="list-group-item">📌 *Día 1* — 7:00 PM</li> -->
+<!--             <li class="list-group-item">📌 *Día 2* — 7:00 PM</li> -->
+<!--             <li class="list-group-item">📌 *Día 3* — 7:00 PM</li> -->
+<!--             <li class="list-group-item">📌 *Día 4* — 7:00 PM</li> -->
+<!--             <li class="list-group-item">📌 *Día 5* — 7:00 PM</li> -->
+<!--             <li class="list-group-item">📌 *Día 6* — 7:00 PM</li> -->
+<!--             <li class="list-group-item">📌 *Día 7* — 7:00 PM</li> -->
+<!--             <li class="list-group-item">📌 *Día 8* — 7:00 PM</li> -->
+<!--             <li class="list-group-item">📌 *Día 9* — 7:00 PM</li> -->
+<!--         </ul> -->
+<!--     </div> -->
 
 
     <!-- ====================== VILLANCICOS ============================ -->
@@ -130,27 +131,35 @@
         <p class="texto">Disfruta de los villancicos más cantados en Navidad.</p>
 
         <div class="villancico">
-            <h4>⭐ Noche de Paz</h4>
-            <audio controls src="sonido/noche_de_paz.mp3"></audio>
+           <h4 role="heading" aria-level="3">⭐ Noche de Paz</h4>
+           <div aria-hidden="true">
+			    <audio controls src="sonido/noche_de_paz.mp3"></audio>
+			</div>
+           
+<!--             <audio controls src="sonido/noche_de_paz.mp3"></audio> -->
         </div>
 
         <div class="villancico">
-            <h4>⭐ Campana sobre campana</h4>
+        <h4 role="heading" aria-level="3">⭐ Campana sobre campana</h4>
+        
             <audio controls src="sonido/campana_sobre_campana.mp3"></audio>
         </div>
 
         <div class="villancico">
-            <h4>⭐ Los peces en el río</h4>
+            <h4 role="heading" aria-level="3">⭐ Los peces en el rio</h4>
+
             <audio controls src="sonido/los_peces_en_el_rio.mp3"></audio>
         </div>
 
         <div class="villancico">
-            <h4>⭐ Burrito Sabanero</h4>
+            <h4 role="heading" aria-level="3">⭐ Burrito Sabanero</h4>
+
             <audio controls src="sonido/burrito_sabanero.mp3"></audio>
         </div>
 
        <div class="villancico">
-    <h4>⭐ El Tamborilero</h4>
+       <h4 role="heading" aria-level="3">⭐ El Tamborilero</h4>
+       
     <audio controls src="sonido/el_tamborilero.mp3"></audio>
 </div>
 
@@ -197,33 +206,33 @@
 </div>
 
 <!-- SEPARADOR BONITO -->
-<h3 class="text-center mt-5 mb-3" style="color:#f5d7a1;">🎄 Otra experiencia 360°</h3>
+<!-- <h3 class="text-center mt-5 mb-3" style="color:#f5d7a1;">🎄 Otra experiencia 360°</h3> -->
 
 <!-- 🔥 EXPERIENCIA VR #2 -->
-<div class="text-center mt-3">
-    <model-viewer
-        src="3D/boy.glb"             
-        alt="Modelo 3D"
-        camera-controls
-        auto-rotate
-        ar
-        ar-scale="fixed"
-        touch-action="pan-y"
-        shadow-intensity="1"
-        skybox-image="img/n2.jpg"     
-        camera-orbit="0deg 75deg 10m"
-        camera-target="0m 1m 0m"
-        field-of-view="31deg"
-        scale="10 10 10"
-        style="
-            width: 100%; 
-            max-width: 700px;
-            height: 350px;
-            margin: 0 auto 20px auto; 
-            border-radius: 20px;
-        ">
-    </model-viewer>
-</div>
+<!-- <div class="text-center mt-3"> -->
+<!--     <model-viewer -->
+<!--         src="3D/boy.glb"              -->
+<!--         alt="Modelo 3D" -->
+<!--         camera-controls -->
+<!--         auto-rotate -->
+<!--         ar -->
+<!--         ar-scale="fixed" -->
+<!--         touch-action="pan-y" -->
+<!--         shadow-intensity="1" -->
+<!--         skybox-image="img/n2.jpg"      -->
+<!--         camera-orbit="0deg 75deg 10m" -->
+<!--         camera-target="0m 1m 0m" -->
+<!--         field-of-view="31deg" -->
+<!--         scale="10 10 10" -->
+<!--         style=" -->
+<!--              width: 100%;  */ -->
+<!-- /*             max-width: 700px; */ -->
+<!-- /*             height: 350px; */ -->
+<!-- /*             margin: 0 auto 20px auto;  */ -->
+<!-- /*             border-radius: 20px; */ -->
+<!--         "> -->
+<!--     </model-viewer> -->
+<!-- </div> -->
 
 </div>
 
@@ -237,7 +246,7 @@
 <script src="js/nieve.js"></script>
 <script src="js/calendario.js"></script>
 
-
+<%@ include file="includes/footer.jsp" %>
 
 </body>
 </html>

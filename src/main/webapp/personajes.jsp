@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <title>Personajes del Pesebre</title>
@@ -13,7 +13,8 @@
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 <!-- TU CSS -->
-<link rel="stylesheet" href="css/personajes.css">
+<link rel="stylesheet" href="css/personaje.css">
+<link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
 
@@ -21,7 +22,6 @@
 <div class="fondo-naranja"></div>
 
 <%@ include file="includes/menu.jsp" %>
-
 
 <div class="container mt-5 text-center">
 
@@ -38,30 +38,30 @@
         <!-- NIÑO JESÚS -->
         <div class="col-md-3">
             <div class="card-personaje">
-                <img src="img/jesus.png" class="foto">
+                <img src="img/jesus.png" class="foto" alt="Niño Jesús en el pesebre">
                 <h3>Niño Jesús</h3>
                 <p>El centro del nacimiento, símbolo de esperanza y luz.</p>
-                <button class="btn-vermas">Ver más</button>
+                <button class="btn-vermas" onclick="window.open('https://es.wikipedia.org/wiki/Ni%C3%B1o_Jes%C3%BAs', '_blank')">Ver más</button>
             </div>
         </div>
 
         <!-- MARÍA -->
         <div class="col-md-3">
             <div class="card-personaje">
-                <img src="img/maria.png" class="foto">
+                <img src="img/maria.png" class="foto" alt="Virgen María">
                 <h3>María</h3>
                 <p>Madre de Jesús, símbolo de amor y fe.</p>
-                <button class="btn-vermas">Ver más</button>
+                <button class="btn-vermas" onclick="window.open('https://es.wikipedia.org/wiki/Mar%C3%ADa_(madre_de_Jes%C3%BAs)', '_blank')">Ver más</button>
             </div>
         </div>
 
         <!-- JOSÉ -->
         <div class="col-md-3">
             <div class="card-personaje">
-                <img src="img/jose.png" class="foto">
+                <img src="img/jose.png" class="foto" alt="San José">
                 <h3>José</h3>
                 <p>Padre terrenal de Jesús, protector del hogar.</p>
-                <button class="btn-vermas">Ver más</button>
+                <button class="btn-vermas" onclick="window.open('https://www.aciprensa.com/recurso/4068/san-jose-casto-esposo-de-la-virgen-maria', '_blank')">Ver más</button>
             </div>
         </div>
 
@@ -77,50 +77,45 @@
         <!-- ÁNGEL -->
         <div class="col-md-3">
             <div class="card-personaje">
-                <img src="img/angel.png" class="foto">
+                <img src="img/angel.png" class="foto" alt="Ángel anunciador">
                 <h3>Ángel</h3>
                 <p>Mensajero de Dios, anuncia el nacimiento.</p>
-                <button class="btn-vermas">Ver más</button>
             </div>
         </div>
 
         <!-- PASTOR -->
         <div class="col-md-3">
             <div class="card-personaje">
-                <img src="img/pastor.png" class="foto">
+                <img src="img/pastor.png" class="foto" alt="Pastor del pesebre">
                 <h3>Pastor</h3>
                 <p>Simboliza la humildad y quienes primero recibieron la noticia.</p>
-                <button class="btn-vermas">Ver más</button>
             </div>
         </div>
 
         <!-- MELCHOR -->
         <div class="col-md-3">
             <div class="card-personaje">
-                <img src="img/melchor.png" class="foto">
+                <img src="img/melchor.png" class="foto" alt="Rey Mago Melchor">
                 <h3>Melchor</h3>
                 <p>Rey mago que ofrece oro, símbolo de realeza.</p>
-                <button class="btn-vermas">Ver más</button>
             </div>
         </div>
 
         <!-- GASPAR -->
         <div class="col-md-3">
             <div class="card-personaje">
-                <img src="img/gaspar.png" class="foto">
+                <img src="img/gaspar.png" class="foto" alt="Rey Mago Gaspar">
                 <h3>Gaspar</h3>
                 <p>Rey mago que trae incienso, símbolo divino.</p>
-                <button class="btn-vermas">Ver más</button>
             </div>
         </div>
 
         <!-- BALTASAR -->
         <div class="col-md-3">
             <div class="card-personaje">
-                <img src="img/baltazar.jpeg" class="foto">
+                <img src="img/baltazar.jpeg" class="foto" alt="Rey Mago Baltasar">
                 <h3>Baltasar</h3>
                 <p>Rey mago que entrega mirra, símbolo de humanidad.</p>
-                <button class="btn-vermas">Ver más</button>
             </div>
         </div>
 
@@ -133,21 +128,19 @@
 
     <div class="row g-4 justify-content-center mt-3">
 
-<!-- BUEY -->
-<div class="col-md-3">
-    <div class="card-personaje">
-        <model-viewer 
-            src="3D/buey.glb"
-            camera-controls
-            autoplay
-            class="model-viewer">
-        </model-viewer>
-        <h3>Buey</h3>
-        <p>Símbolo de paciencia, fuerza y trabajo.</p>
-        <button class="btn-vermas">Ver más</button>
-    </div>
-</div>
-
+        <!-- BUEY -->
+        <div class="col-md-3">
+            <div class="card-personaje">
+                <model-viewer 
+                    src="3D/buey.glb"
+                    camera-controls
+                    autoplay
+                    class="model-viewer"
+                    alt="Modelo 3D de un buey"></model-viewer>
+                <h3>Buey</h3>
+                <p>Símbolo de paciencia, fuerza y trabajo.</p>
+            </div>
+        </div>
 
         <!-- OVEJA -->
         <div class="col-md-3">
@@ -156,11 +149,10 @@
                     src="3D/oveja.glb"
                     camera-controls 
                     auto-rotate
-                    class="model-viewer">
-                </model-viewer>
+                    class="model-viewer"
+                    alt="Modelo 3D de una oveja"></model-viewer>
                 <h3>Oveja</h3>
                 <p>Acompaña a los pastores con serenidad y ternura.</p>
-                <button class="btn-vermas">Ver más</button>
             </div>
         </div>
 
@@ -170,12 +162,11 @@
                 <model-viewer 
                     src="3D/burro.glb"
                     camera-controls
-            autoplay
-                    class="model-viewer">
-                </model-viewer>
+                    autoplay
+                    class="model-viewer"
+                    alt="Modelo 3D de una mula o burro"></model-viewer>
                 <h3>Mula</h3>
                 <p>Representa humildad, entrega y servicio.</p>
-                <button class="btn-vermas">Ver más</button>
             </div>
         </div>
 
@@ -186,11 +177,10 @@
                     src="3D/camello.glb"
                     camera-controls 
                     auto-rotate
-                    class="model-viewer">
-                </model-viewer>
+                    class="model-viewer"
+                    alt="Modelo 3D de un camello"></model-viewer>
                 <h3>Camello</h3>
                 <p>Animal de los Reyes Magos, símbolo de viaje y devoción.</p>
-                <button class="btn-vermas">Ver más</button>
             </div>
         </div>
 
@@ -200,6 +190,7 @@
 
 <!-- TU JS -->
 <script src="js/personajes.js"></script>
+<%@ include file="includes/footer.jsp" %>
 
 </body>
 </html>

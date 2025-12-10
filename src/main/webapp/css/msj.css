@@ -1,0 +1,256 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.fondo-f1-blur{
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background-image:url("../img/f1.png");
+    background-size:cover;
+    filter: blur(8px) brightness(1.05);
+    z-index:-1;
+}
+/* ⭐ ESTRELLAS */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 2 !important; /* ⭐ ENCIMA DEL FONDO */
+}
+
+
+/* FONDO */
+.seccion-fondo {
+    height: 100vh;
+    background-image: url("../img/f1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    color: white;
+    font-family: "Georgia", serif;
+}
+
+/* MENÚ */
+.menu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.07);
+    padding: 15px 0;
+    backdrop-filter: blur(5px);
+    position: relative;
+    z-index: 10;
+}
+
+.menu a {
+    color: #e6e6e6;
+    text-decoration: none;
+    margin: 0 40px;
+    font-size: 18px;
+}
+
+.menu a:hover {
+    color: #fff;
+}
+
+/* TÍTULO */
+.titulo {
+    text-align: center;
+    margin-top: 90px;
+    position: relative;
+    z-index: 9;
+}
+
+.titulo h1 {
+    font-size: 60px;
+    margin: 0;
+}
+
+.titulo p {
+    font-size: 22px;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+/* IMAGEN */
+.contenedor-superior {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+.contenedor-superior img {
+    width: 1000px;
+    height: auto;
+}
+
+/* SECCIÓN BLANCA */
+.seccion-blanca {
+    height: 100vh;
+    background: white;
+}
+/* ANIMACIÓN DE CAÍDA */
+@keyframes caer {
+    0% { transform: translateY(-10vh) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* ESTILO DE CADA ESTRELLA / COPITO */
+.stars span {
+    position: absolute;
+    opacity: 0.9;
+    animation: caer 8s linear infinite;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ===== BOTÓN DEL MENÚ ===== */
+.menu-btn {
+    display: none; /* 🚫 OCULTO EN PC */
+}
+
+/* ===== SOLO EN CELULAR ===== */
+@media (max-width: 768px) {
+
+    /* Mostrar el botón SOLO en móvil */
+    .menu-btn {
+        display: block;
+        background: rgba(255,255,255,0.12);
+        color: white;
+        border: 1px solid rgba(255,255,255,0.4);
+        font-size: 18px;
+        padding: 10px 18px;
+        border-radius: 8px;
+        margin: 12px auto;
+        backdrop-filter: blur(5px);
+        cursor: pointer;
+        z-index: 20;
+    }
+
+    /* Menú oculto por defecto en móvil */
+    .menu {
+        display: none !important;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Menú visible cuando se abre */
+    .menu.show {
+        display: flex !important;
+    }
+}
+.seccion-fondo {
+    position: relative;
+    z-index: 0;
+}
+.menu {
+    z-index: 10 !important;
+}
+
+.card {
+    position: relative;
+    z-index: 11 !important;
+}
+.titulo-mensajes {
+    color: #ffffff !important;
+    text-shadow: 0 0 6px rgba(255,255,255,0.4);
+}
+/* ⭐ DORADO PASTEL SUAVE – más claro */
+.mensaje-navidad {
+    background: linear-gradient(135deg, #f7e7b9 0%, #f3dba1 50%, #eacb8c 100%) !important;
+    border: 1px solid rgba(255, 240, 200, 0.8) !important;
+    border-radius: 18px !important;
+    padding: 28px 30px !important;
+
+    /* efecto suave */
+    box-shadow: 0 8px 25px rgba(240, 220, 170, 0.30) !important;
+    backdrop-filter: blur(6px) !important;
+
+    transition: .25s ease-in-out !important;
+}
+
+.mensaje-navidad:hover {
+    background: linear-gradient(135deg, #fff3d2 0%, #f7e7b9 50%, #f3dba1 100%) !important;
+    box-shadow: 0 13px 30px rgba(240, 220, 170, 0.45) !important;
+}
+
+/* Nombre azul */
+.mensaje-navidad strong {
+    color: #0d6efd !important;
+    font-weight: bold !important;
+}
+
+/* Texto */
+.mensaje-navidad p {
+    color: #44351a !important;
+}
+
+/* Fecha */
+.mensaje-navidad small {
+    color: #6c5732 !important;
+}
+/* 🎀 Dorado pastel ultra claro */
+.mensaje-navidad {
+    background: rgba(255, 255, 240, 0.70) !important; /* crema súper claro */
+    border: 1px solid rgba(255, 235, 200, 1) !important;
+    backdrop-filter: blur(6px) !important;
+    border-radius: 18px !important;
+    padding: 25px 30px !important;
+    box-shadow: 0 8px 20px rgba(255, 255, 240, 0.25) !important;
+    transition: all .25s ease !important;
+}
+
+.mensaje-navidad:hover {
+    background: rgba(255, 255, 240, 0.85) !important;
+    box-shadow: 0 12px 30px rgba(255, 255, 240, 0.35) !important;
+}
+
+.mensaje-navidad strong {
+    color: green !important;
+}
+
+.mensaje-navidad p {
+    color: #333 !important;
+}
+
+.mensaje-navidad small {
+    color: #666 !important;
+}
+/* ⭐ Corrección accesible para estrellas y copos (pseudo-elementos) */
+.stars span {
+    position: absolute !important;
+    display: inline-block !important;
+    pointer-events: none !important;
+}
+
+/* Estrella */
+.stars span.star::before {
+    content: "⭐" !important;
+    font-size: var(--size) !important;
+    color: #ffce00 !important;
+}
+
+/* Copo de nieve */
+.stars span.snow::before {
+    content: "❄" !important;
+    font-size: var(--size) !important;
+    color: #ff0000 !important;
+}

@@ -17,8 +17,9 @@
     <title>Mensajes Navideños</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<link rel="stylesheet" href="css/mensajes.css">
+<link rel="stylesheet" href="css/msj.css">
 
+<link rel="stylesheet" href="css/footer.css">
     <!-- JS EXTERNO -->
     <script src="js/estrellas.js" defer></script>
 
@@ -54,7 +55,8 @@
 
     <!-- LISTA DE MENSAJES -->
     <% for(Mensaje m : lista){ %>
-        <div class="card p-3 mb-3 shadow-sm">
+        <div class="card mensaje-navidad p-4 mb-4">
+
             <strong class="text-primary"><%= m.getNombre() %></strong>
             <p><%= m.getMensaje() %></p>
             <small class="text-muted"><%= m.getFecha() %></small>
@@ -65,5 +67,6 @@
 
 </div>
 
+<%@ include file="includes/footer.jsp" %>
 </body>
 </html>

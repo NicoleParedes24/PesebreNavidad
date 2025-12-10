@@ -46,6 +46,7 @@
     <!-- Estrellas -->
     <script src="js/estrellas.js" defer></script>
 
+<link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>
@@ -104,5 +105,6 @@
 
     </div>
 
+<%@ include file="includes/footer.jsp" %>
 </body>
 </html>

@@ -55,6 +55,50 @@ public class Usuario {
     public void setFechaRegistro(LocalDateTime fechaRegistro) { this.fechaRegistro = fechaRegistro; }
     
     
+    public ResultSet filtrarAuditoria(String tabla, String op, String fecha) {
+        ResultSet rs = null;
+
+        try {
+            String sql = "SELECT * FROM auditoria.tb_auditoria WHERE 1=1";
+
+            if (tabla != null && !tabla.isEmpty()) {
+                sql += " AND tabla_aud ILIKE ?";
+            }
+
+            if (op != null && !op.isEmpty()) {
+                sql += " AND operacion_aud = ?";
+            }
+
+            if (fecha != null && !fecha.isEmpty()) {
+                sql += " AND DATE(fecha_aud) = ?";
+            }
+
+            sql += " ORDER BY fecha_aud DESC";
+
+            Conexion con = new Conexion();
+            PreparedStatement pst = con.getConexion().prepareStatement(sql);
+
+            int index = 1;
+
+            if (tabla != null && !tabla.isEmpty()) {
+                pst.setString(index++, "%" + tabla + "%");
+            }
+            if (op != null && !op.isEmpty()) {
+                pst.setString(index++, op);
+            }
+            if (fecha != null && !fecha.isEmpty()) {
+                pst.setString(index++, fecha);
+            }
+
+            rs = pst.executeQuery();
+
+        } catch (Exception e) {
+            System.out.println("❌ Error en filtrarAuditoria(): " + e.getMessage());
+        }
+
+        return rs;
+    }
+
 
 
     // ============================================================
@@ -258,5 +302,29 @@ public class Usuario {
         return ok;
     }
 
+    // ============================================================
+    // ✔ REGISTRAR AUDITORÍA (INSERTA EN LA TABLA auditoria.tb_auditoria)
+    // ============================================================
+    public void registrarAuditoria(String tabla, String operacion, String valorAnterior, String valorNuevo, String usuario) {
+        String sql = "INSERT INTO auditoria.tb_auditoria (tabla_aud, operacion_aud, valoranterior_aud, valornuevo_aud, usuario_aud, fecha_aud) "
+                   + "VALUES (?, ?, ?, ?, ?, NOW())";
+
+        try {
+            Conexion con = new Conexion();
+            PreparedStatement ps = con.getConexion().prepareStatement(sql);
+
+            ps.setString(1, tabla);
+            ps.setString(2, operacion);  // I, U, D
+            ps.setString(3, valorAnterior);
+            ps.setString(4, valorNuevo);
+            ps.setString(5, usuario);
+
+            ps.executeUpdate();
+            con.getConexion().close();
+
+        } catch (Exception e) {
+            System.out.println("❌ Error registrando auditoría: " + e.getMessage());
+        }
+    }
 
 }
