@@ -75,19 +75,11 @@
 
                         <!-- EDITAR -->
                         <td>
-						    <% if(m.isAprobado()) { %>
-						        <a href="cambiarEstado.jsp?id=<%= m.getId() %>&estado=0"
-						           class="btn btn-secondary btn-sm">
-						            🚫 Bloquear
-						        </a>
-						    <% } else { %>
-						        <a href="cambiarEstado.jsp?id=<%= m.getId() %>&estado=1"
-						           class="btn btn-success btn-sm">
-						            👁 Mostrar
-						        </a>
-						    <% } %>
-						</td>
-						
+                            <a href="editarMensaje.jsp?id=<%= m.getId() %>" class="btn btn-warning btn-sm">
+                                ✏ Editar
+                            </a>
+                        </td>
+
                         <!-- ELIMINAR -->
                         <td>
                             <a href="eliminarMensaje.jsp?id=<%= m.getId() %>" 

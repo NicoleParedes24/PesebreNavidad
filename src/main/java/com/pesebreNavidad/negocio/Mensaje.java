@@ -14,8 +14,6 @@ public class Mensaje {
     private String nombre;
     private String mensaje;
     private String fecha;
-    private boolean aprobado;
-
 
     // ==== GETTERS & SETTERS ====
 
@@ -47,14 +45,7 @@ public class Mensaje {
         this.fecha = fecha;
     }
 
-    public boolean isAprobado() {
-        return aprobado;
-    }
-    public void setAprobado(boolean aprobado) {
-        this.aprobado = aprobado;
-    }
 
-    
     // =========================================================
     //                 CONSTRUCTOR NECESARIO
     // =========================================================
@@ -116,8 +107,6 @@ public class Mensaje {
                 m.setNombre(rs.getString("nombre"));
                 m.setMensaje(rs.getString("mensaje"));
                 m.setFecha(rs.getString("fecha"));
-                m.setAprobado(rs.getBoolean("aprobado"));
-
 
                 lista.add(m);
             }
@@ -214,27 +203,5 @@ public class Mensaje {
             System.out.println("❌ Error eliminando mensaje: " + e.getMessage());
         }
     }
-    
-    public void cambiarEstado(int id, boolean aprobado) {
-        try {
-            Conexion c = new Conexion();
-            Connection con = c.getConexion();
-
-            PreparedStatement ps = con.prepareStatement(
-                "UPDATE mensajes_navidad SET aprobado=? WHERE id=?"
-            );
-
-            ps.setBoolean(1, aprobado);
-            ps.setInt(2, id);
-            ps.executeUpdate();
-
-            con.close();
-
-        } catch (Exception e) {
-            System.out.println("❌ Error cambiando estado del mensaje: " + e.getMessage());
-        }
-    }
-
-    
 
 }

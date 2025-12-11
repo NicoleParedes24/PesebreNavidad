@@ -1,38 +1,19 @@
-/* ==========================================================
-   CONFIGURACIÓN GLOBAL
-========================================================== */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
 }
 
-/* 🔥 Fondo global infinito */
-body {
-    background-image: url("../img/f1.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed; /* Fondo sigue igual al bajar */
-    color: white;
-    font-family: "Georgia", serif;
-}
-
-/* Fondo blur opcional */
-.fondo-f1-blur {
+.fondo-f1-blur{
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-image: url("../img/f1.png");
-    background-size: cover;
-    filter: blur(2px) brightness(1.05);
-    z-index: -1;
+    top:0; left:0;
+    width:100%; height:100%;
+    background-image:url("../img/f1.png");
+    background-size:cover;
+    filter: blur(8px) brightness(1.05);
+    z-index:-1;
 }
-
-
-/* ==========================================================
-   ⭐ ESTRELLAS — DETRÁS DE TODO
-========================================================== */
+/* ⭐ ESTRELLAS */
 .stars {
     position: fixed;
     top: 0;
@@ -41,46 +22,23 @@ body {
     height: 100%;
     pointer-events: none;
     overflow: hidden;
-    z-index: 0 !important; /* 🔥 detrás de las esferas */
-}
-
-.stars span {
-    position: absolute !important;
-    opacity: 0.9;
-    animation: caer 8s linear infinite;
-}
-
-.stars span.star::before {
-    content: "⭐" !important;
-    font-size: var(--size) !important;
-    color: #ffce00 !important;
-}
-
-.stars span.snow::before {
-    content: "❄" !important;
-    font-size: var(--size) !important;
-    color: #ff0000 !important;
-}
-
-@keyframes caer {
-    0% { transform: translateY(-10vh) rotate(0deg); }
-    100% { transform: translateY(110vh) rotate(360deg); }
+    z-index: 2 !important; /* ⭐ ENCIMA DEL FONDO */
 }
 
 
-/* ==========================================================
-   CONTENEDOR GENERAL
-========================================================== */
+/* FONDO */
 .seccion-fondo {
-    min-height: 100vh; /* ahora crece según contenido */
+    height: 100vh;
+    background-image: url("../img/f1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     position: relative;
-    z-index: 1;
+    color: white;
+    font-family: "Georgia", serif;
 }
 
-
-/* ==========================================================
-   MENÚ SUPERIOR
-========================================================== */
+/* MENÚ */
 .menu {
     width: 100%;
     display: flex;
@@ -103,282 +61,196 @@ body {
     color: #fff;
 }
 
-
-/* ==========================================================
-   TITULO
-========================================================== */
+/* TÍTULO */
 .titulo {
     text-align: center;
     margin-top: 90px;
+    position: relative;
     z-index: 9;
 }
 
 .titulo h1 {
     font-size: 60px;
+    margin: 0;
 }
 
 .titulo p {
     font-size: 22px;
+    margin-top: 10px;
     opacity: 0.9;
 }
 
-
-/* ==========================================================
-   🎄 GRID DE BOMBILLOS
-========================================================== */
-.grid-bombillos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px;
-    padding: 60px 20px;
-    justify-items: center;
-}
-
-/* Cada bombillo */
-.grid-bombillos > div {
-    position: relative;
-    z-index: 5; /* 🔥 Esferas siempre adelante */
-}
-
-
-/* ==========================================================
-   🎄 TAPA DEL BOMBILLO
-========================================================== */
-.grid-bombillos > div::before {
-    content: "";
-    width: 70px;
-    height: 35px;
-
-    background: linear-gradient(180deg,
-        #f8e097,
-        #d4a430 60%,
-        #b98d23
-    );
-    border-radius: 8px;
-
+/* IMAGEN */
+.contenedor-superior {
     position: absolute;
-    top: -30px;
+    top: 70%;
     left: 50%;
-    transform: translateX(-50%);
-    z-index: 50;
-
-    box-shadow:
-        0 3px 6px rgba(0,0,0,.25),
-        inset 0 0 6px rgba(255,255,255,0.8);
+    transform: translate(-50%, -50%);
+    z-index: 5;
 }
 
+.contenedor-superior img {
+    width: 1000px;
+    height: auto;
+}
 
-/* ==========================================================
-   🎄 HILO DEL BOMBILLO
-========================================================== */
-.grid-bombillos > div::after {
-    content: "";
-    width: 4px;
-    height: 55px;
-    background: #d4a430;
+/* SECCIÓN BLANCA */
+.seccion-blanca {
+    height: 100vh;
+    background: white;
+}
+/* ANIMACIÓN DE CAÍDA */
+@keyframes caer {
+    0% { transform: translateY(-10vh) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+}
 
+/* ESTILO DE CADA ESTRELLA / COPITO */
+.stars span {
     position: absolute;
-    top: -95px;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0.95;
-
-    z-index: 40;
+    opacity: 0.9;
+    animation: caer 8s linear infinite;
 }
 
 
-/* ==========================================================
-   🎄 BOMBILLO CIRCULAR
-========================================================== */
-.bombillo-navidad {
-    width: 330px;
-    height: 330px;
-    border-radius: 50%;
 
-    background: radial-gradient(circle at 30% 30%,
-        #fffbe8 0%, 
-        #fbe7b3 40%, 
-        #f4d89a 65%,
-        #e6c27f 100%
-    );
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    position: relative;
-    overflow: visible;
 
-    box-shadow:
-        0 0 60px rgba(255, 240, 180, 0.55),
-        0 0 120px rgba(255, 220, 150, 0.40),
-        inset 0 0 25px rgba(255,255,255,0.6);
 
-    transition: transform .25s ease-in-out;
+
+
+
+
+/* ===== BOTÓN DEL MENÚ ===== */
+.menu-btn {
+    display: none; /* 🚫 OCULTO EN PC */
 }
 
-.bombillo-navidad:hover {
-    transform: scale(1.06);
-}
-
-
-/* ==========================================================
-   🎄 CONTENIDO DEL BOMBILLO
-========================================================== */
-.bombillo-contenido {
-    width: 75%;
-    height: 75%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding-right: 8px;
-    text-align: center;
-}
-
-/* Scroll bonito */
-.bombillo-contenido::-webkit-scrollbar {
-    width: 6px;
-}
-.bombillo-contenido::-webkit-scrollbar-thumb {
-    background: rgba(0,0,0,0.25);
-    border-radius: 4px;
-}
-
-
-/* ==========================================================
-   🎄 TEXTO INTERNO
-========================================================== */
-.bombillo-contenido strong {
-    color: green;
-    font-size: 22px;
-    margin-bottom: 4px;
-}
-
-.bombillo-contenido p {
-    color: #4b3d1f;
-    font-size: 16px;
-    white-space: normal !important;
-    overflow-wrap: break-word !important;
-    line-height: 1.4;
-    margin-bottom: 6px;
-}
-
-.bombillo-contenido small {
-    color: #5a4528;
-    font-size: 12px;
-    margin-top: 5px;
-}
-/* ==========================================================
-   📱 RESPONSIVE – VERSIÓN MÓVIL
-========================================================== */
-
-/* Tablets (pantallas menores a 992px) */
-@media (max-width: 992px) {
-
-    .grid-bombillos {
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 35px;
-        padding: 40px 10px;
-    }
-
-    .bombillo-navidad {
-        width: 280px;
-        height: 280px;
-    }
-
-    .grid-bombillos > div::before {
-        width: 60px;
-        height: 30px;
-        top: -25px;
-    }
-
-    .grid-bombillos > div::after {
-        height: 45px;
-        top: -75px;
-    }
-}
-
-
-/* Teléfonos grandes (menores a 768px) */
+/* ===== SOLO EN CELULAR ===== */
 @media (max-width: 768px) {
 
-    .menu a {
-        margin: 0 15px;
-        font-size: 15px;
-    }
-
-    .titulo h1 {
-        font-size: 42px;
-    }
-
-    .titulo p {
+    /* Mostrar el botón SOLO en móvil */
+    .menu-btn {
+        display: block;
+        background: rgba(255,255,255,0.12);
+        color: white;
+        border: 1px solid rgba(255,255,255,0.4);
         font-size: 18px;
+        padding: 10px 18px;
+        border-radius: 8px;
+        margin: 12px auto;
+        backdrop-filter: blur(5px);
+        cursor: pointer;
+        z-index: 20;
     }
 
-    .grid-bombillos {
-        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-        gap: 30px;
+    /* Menú oculto por defecto en móvil */
+    .menu {
+        display: none !important;
+        flex-direction: column;
+        gap: 15px;
     }
 
-    .bombillo-navidad {
-        width: 240px;
-        height: 240px;
-    }
-
-    .bombillo-contenido strong {
-        font-size: 20px;
-    }
-
-    .bombillo-contenido p {
-        font-size: 15px;
+    /* Menú visible cuando se abre */
+    .menu.show {
+        display: flex !important;
     }
 }
+.seccion-fondo {
+    position: relative;
+    z-index: 0;
+}
+.menu {
+    z-index: 10 !important;
+}
 
+.card {
+    position: relative;
+    z-index: 11 !important;
+}
+.titulo-mensajes {
+    color: #ffffff !important;
+    text-shadow: 0 0 6px rgba(255,255,255,0.4);
+}
+/* ⭐ DORADO PASTEL SUAVE – más claro */
+.mensaje-navidad {
+    background: linear-gradient(135deg, #f7e7b9 0%, #f3dba1 50%, #eacb8c 100%) !important;
+    border: 1px solid rgba(255, 240, 200, 0.8) !important;
+    border-radius: 18px !important;
+    padding: 28px 30px !important;
 
-/* Teléfonos pequeños (menores a 480px) */
-@media (max-width: 480px) {
+    /* efecto suave */
+    box-shadow: 0 8px 25px rgba(240, 220, 170, 0.30) !important;
+    backdrop-filter: blur(6px) !important;
 
-    .menu {
-        flex-wrap: wrap;
-        padding: 10px 0;
-    }
+    transition: .25s ease-in-out !important;
+}
 
-    .menu a {
-        margin: 5px 15px;
-        font-size: 14px;
-    }
+.mensaje-navidad:hover {
+    background: linear-gradient(135deg, #fff3d2 0%, #f7e7b9 50%, #f3dba1 100%) !important;
+    box-shadow: 0 13px 30px rgba(240, 220, 170, 0.45) !important;
+}
 
-    .titulo h1 {
-        font-size: 32px;
-    }
+/* Nombre azul */
+.mensaje-navidad strong {
+    color: #0d6efd !important;
+    font-weight: bold !important;
+}
 
-    .titulo p {
-        font-size: 16px;
-    }
+/* Texto */
+.mensaje-navidad p {
+    color: #44351a !important;
+}
 
-    .grid-bombillos {
-        grid-template-columns: 1fr; /* 🔥 Una esfera por fila */
-        gap: 25px;
-        padding-bottom: 40px;
-    }
+/* Fecha */
+.mensaje-navidad small {
+    color: #6c5732 !important;
+}
+/* 🎀 Dorado pastel ultra claro */
+.mensaje-navidad {
+    background: rgba(255, 255, 240, 0.70) !important; /* crema súper claro */
+    border: 1px solid rgba(255, 235, 200, 1) !important;
+    backdrop-filter: blur(6px) !important;
+    border-radius: 18px !important;
+    padding: 25px 30px !important;
+    box-shadow: 0 8px 20px rgba(255, 255, 240, 0.25) !important;
+    transition: all .25s ease !important;
+}
 
-    .bombillo-navidad {
-        width: 210px;
-        height: 210px;
-    }
+.mensaje-navidad:hover {
+    background: rgba(255, 255, 240, 0.85) !important;
+    box-shadow: 0 12px 30px rgba(255, 255, 240, 0.35) !important;
+}
 
-    .grid-bombillos > div::before {
-        width: 50px;
-        height: 26px;
-        top: -20px;
-    }
+.mensaje-navidad strong {
+    color: green !important;
+}
 
-    .grid-bombillos > div::after {
-        height: 40px;
-        top: -65px;
-    }
+.mensaje-navidad p {
+    color: #333 !important;
+}
 
-    .bombillo-contenido {
-        width: 80%;
-        height: 80%;
-    }
+.mensaje-navidad small {
+    color: #666 !important;
+}
+/* ⭐ Corrección accesible para estrellas y copos (pseudo-elementos) */
+.stars span {
+    position: absolute !important;
+    display: inline-block !important;
+    pointer-events: none !important;
+}
+
+/* Estrella */
+.stars span.star::before {
+    content: "⭐" !important;
+    font-size: var(--size) !important;
+    color: #ffce00 !important;
+}
+
+/* Copo de nieve */
+.stars span.snow::before {
+    content: "❄" !important;
+    font-size: var(--size) !important;
+    color: #ff0000 !important;
 }

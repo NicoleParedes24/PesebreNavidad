@@ -54,27 +54,14 @@
     <% } %>
 
     <!-- LISTA DE MENSAJES -->
-    </br>
+    <% for(Mensaje m : lista){ %>
+        <div class="card mensaje-navidad p-4 mb-4">
 
-	<div class="grid-bombillos">
-	<% for(Mensaje m : lista){ 
-     if(!m.isAprobado()) continue;   // ❗ Saltar mensajes NO aprobados
-	%>
-	
-	    <div class="bombillo-navidad">
-	        <div class="bombillo-contenido">
-	            <strong><%= m.getNombre() %></strong>
-	            <p><%= m.getMensaje() %></p>
-	            <small><%= m.getFecha() %></small>
-	        </div>
-	    </div>
-	
-	<% } %>
-
-	</div>
-
-
-
+            <strong class="text-primary"><%= m.getNombre() %></strong>
+            <p><%= m.getMensaje() %></p>
+            <small class="text-muted"><%= m.getFecha() %></small>
+        </div>
+    <% } %>
 
    
 

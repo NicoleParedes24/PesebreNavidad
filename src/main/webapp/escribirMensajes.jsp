@@ -10,31 +10,21 @@
 
     // Guardar mensaje si viene el POST
     String mensajeTxt = request.getParameter("mensaje");
-    
-    if(mensajeTxt != null){
-    
-        // 🔥 Validar límite de caracteres
-        if(mensajeTxt.length() > 200){
-%>
-            <div class="alert alert-danger text-center mt-3">
-                El mensaje no puede superar los 200 caracteres.
-            </div>
-<%
-        } else {
-            Mensaje m = new Mensaje();
-            m.setNombre(nombre);
-            m.setMensaje(mensajeTxt);
 
-            if(m.guardar()){
-                response.sendRedirect("mensajes.jsp?ok=1");
-                return;
-            }
+    if(mensajeTxt != null){
+        Mensaje m = new Mensaje();
+        m.setNombre(nombre);
+        m.setMensaje(mensajeTxt);
+
+        if(m.guardar()){
+            response.sendRedirect("mensajes.jsp?ok=1");
+            return;
+        } 
 %>
-            <div class="alert alert-danger text-center mt-3">
-                Error al guardar mensaje.
-            </div>
+        <div class="alert alert-danger text-center mt-3">
+            Error al guardar mensaje.
+        </div>
 <%
-        }
     }
 %>
 
@@ -56,7 +46,7 @@
     <!-- Estrellas -->
     <script src="js/estrellas.js" defer></script>
 
-    <link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>
@@ -91,18 +81,7 @@
                 <!-- MENSAJE -->
                 <div class="mb-3">
                     <label class="form-label fw-bold">Mensaje</label>
-                    <textarea 
-                        name="mensaje" 
-                        id="mensaje" 
-                        rows="4" 
-                        maxlength="200" 
-                        class="form-control" 
-                        required
-                    ></textarea>
-
-                    <small id="contador" class="text-muted">
-                        Te quedan 200 caracteres.
-                    </small>
+                    <textarea name="mensaje" rows="4" maxlength="300" class="form-control" required></textarea>
                 </div>
 
                 <!-- BOTONES -->
@@ -127,8 +106,5 @@
     </div>
 
 <%@ include file="includes/footer.jsp" %>
-
-<script src="js/contador.js"></script>
-
 </body>
 </html>

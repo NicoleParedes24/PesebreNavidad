@@ -6,7 +6,7 @@
     <title>Pesebre Navideño</title>
 
     <!-- CSS EXTERNO -->
-    <link rel="stylesheet" href="css/in.css">
+    <link rel="stylesheet" href="css/index.css">
 
     <!-- JS EXTERNO -->
     <script src="js/estrellas.js" defer></script>
