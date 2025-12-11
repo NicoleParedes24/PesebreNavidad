@@ -33,12 +33,13 @@
     // LOGIN CORRECTO
     // ────────────────────────────────────────────────
     if (loginCorrecto) {
-
         // GUARDAR EN SESIÓN
         session.setAttribute("usuario", u.getNombre());
         session.setAttribute("perfil", u.getPerfil());
         session.setAttribute("correo", u.getCorreo());
         session.setAttribute("id", u.getId());
+        session.setAttribute("id_usuario", u.getId());
+
         session.setAttribute("nombreUsuario", u.getNombre());
 
         if (u.getPerfil() == 1) 

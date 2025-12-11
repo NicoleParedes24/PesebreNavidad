@@ -70,6 +70,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="escribirMensajes.jsp">Mensajes Navideños</a>
                         </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="votar.jsp">Apoya tu pesebre</a>
+                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="cerrarSesion.jsp">Cerrar Sesión</a>

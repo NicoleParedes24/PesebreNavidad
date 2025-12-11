@@ -82,6 +82,7 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="cerrarSesion.jsp">Cerrar Sesión</a>
                     </li>
+                    <li class="nav-item"><a class="nav-link" href="adminPesebres.jsp">Pesebres</a></li>
 
                 </ul>
 
