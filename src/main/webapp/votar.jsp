@@ -69,6 +69,13 @@ body {
     height: 180px;
     object-fit: cover;
 }
+
+/* 🔥 Texto visible dentro de tarjeta blanca */
+.tarjeta-pesebre h4 {
+    color: #1b1b1b !important;  /* negro suave */
+    font-weight: bold;
+}
+
 .btn-votar {
     background: #198754;
     color: white;
