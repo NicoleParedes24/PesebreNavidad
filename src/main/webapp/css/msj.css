@@ -1,0 +1,252 @@
+/* ==========================================================
+   CONFIGURACIÓN GLOBAL
+========================================================== */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.fondo-f1-blur{
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background-image:url("../img/f1.png");
+    background-size:cover;
+    filter: blur(8px) brightness(1.05);
+    z-index:-1;
+}
+
+/* ⭐ ESTRELLAS */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 2 !important;
+}
+
+.stars span {
+    position: absolute !important;
+    opacity: 0.9;
+    animation: caer 8s linear infinite;
+}
+
+.stars span.star::before {
+    content: "⭐" !important;
+    font-size: var(--size) !important;
+    color: #ffce00 !important;
+}
+
+.stars span.snow::before {
+    content: "❄" !important;
+    font-size: var(--size) !important;
+    color: #ff0000 !important;
+}
+
+@keyframes caer {
+    0% { transform: translateY(-10vh) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+}
+
+
+/* ==========================================================
+   FONDO Y ESTRUCTURA GENERAL
+========================================================== */
+.seccion-fondo {
+    height: 100vh;
+    background-image: url("../img/f1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    color: white;
+    font-family: "Georgia", serif;
+}
+
+.menu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.07);
+    padding: 15px 0;
+    backdrop-filter: blur(5px);
+    position: relative;
+    z-index: 10;
+}
+
+.menu a {
+    color: #e6e6e6;
+    text-decoration: none;
+    margin: 0 40px;
+    font-size: 18px;
+}
+
+.menu a:hover {
+    color: #fff;
+}
+
+.titulo {
+    text-align: center;
+    margin-top: 90px;
+    z-index: 9;
+}
+
+.titulo h1 {
+    font-size: 60px;
+}
+
+.titulo p {
+    font-size: 22px;
+    opacity: 0.9;
+}
+
+
+/* ==========================================================
+   🎄 GRID DE BOMBILLOS (3 columnas y espacio corregido)
+========================================================== */
+.grid-bombillos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px; /* antes 90px — ahora más compacto */
+    padding: 60px 20px;
+    justify-items: center;
+}
+
+/* Cada bombillo necesita un contenedor padre */
+.grid-bombillos > div {
+    position: relative;
+}
+
+
+/* ==========================================================
+   🎄 TAPA DEL BOMBILLO (fuera del círculo)
+========================================================== */
+.grid-bombillos > div::before {
+    content: "";
+    width: 70px;
+    height: 35px;
+
+    background: linear-gradient(180deg,
+        #f8e097,
+        #d4a430 60%,
+        #b98d23
+    );
+    border-radius: 8px;
+
+    position: absolute;
+    top: -30px; /* antes -45px — ahora más pegado */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+
+    box-shadow:
+        0 3px 6px rgba(0,0,0,.25),
+        inset 0 0 6px rgba(255,255,255,0.8);
+}
+
+
+/* ==========================================================
+   🎄 HILO DEL BOMBILLO (fuera del círculo)
+========================================================== */
+.grid-bombillos > div::after {
+    content: "";
+    width: 4px;
+    height: 55px; /* antes 80px — ahora más corto */
+    background: #d4a430;
+
+    position: absolute;
+    top: -95px; /* antes -120px — ahora más pegado */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.95;
+
+    z-index: 40;
+}
+
+
+/* ==========================================================
+   🎄 BOMBILLO CIRCULAR REALISTA
+========================================================== */
+.bombillo-navidad {
+    width: 330px;
+    height: 330px;
+    border-radius: 50%;
+
+    background: radial-gradient(circle at 30% 30%,
+        #fffbe8 0%, 
+        #fbe7b3 40%, 
+        #f4d89a 65%,
+        #e6c27f 100%
+    );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    overflow: visible; /* 🔥 permite mostrar la tapa y el hilo sin recortes */
+
+    box-shadow:
+        0 0 60px rgba(255, 240, 180, 0.55),
+        0 0 120px rgba(255, 220, 150, 0.40),
+        inset 0 0 25px rgba(255,255,255,0.6);
+
+    transition: transform .25s ease-in-out;
+}
+
+.bombillo-navidad:hover {
+    transform: scale(1.06);
+}
+
+
+/* ==========================================================
+   🎄 CONTENIDO INTERNO DEL BOMBILLO
+========================================================== */
+.bombillo-contenido {
+    width: 75%;
+    height: 75%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 8px;
+    text-align: center;
+}
+
+/* Scroll bonito */
+.bombillo-contenido::-webkit-scrollbar {
+    width: 6px;
+}
+.bombillo-contenido::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.25);
+    border-radius: 4px;
+}
+
+
+/* ==========================================================
+   🎄 TEXTO INTERNO
+========================================================== */
+.bombillo-contenido strong {
+    color: green;
+    font-size: 22px;
+    margin-bottom: 4px;
+}
+
+.bombillo-contenido p {
+    color: #4b3d1f;
+    font-size: 16px;
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    line-height: 1.4;
+    margin-bottom: 6px;
+}
+
+.bombillo-contenido small {
+    color: #5a4528;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
