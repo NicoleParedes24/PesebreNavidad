@@ -78,21 +78,12 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="mensajesAdmin.jsp">Mensajes Navideños</a>
                     </li>
-<<<<<<< HEAD
-					<li class="nav-item"><a class="nav-link" href="adminPesebres.jsp">Pesebres</a></li>
-					<li class="nav-item"><a class="nav-link" href="admin_calendario.jsp">Administrar Calendario</a></li>
-=======
 
->>>>>>> upstream/main
                     <li class="nav-item">
                         <a class="nav-link text-white" href="cerrarSesion.jsp">Cerrar Sesión</a>
                     </li>
 
-<<<<<<< HEAD
-
-=======
 					<li class="nav-item"><a class="nav-link" href="adminPesebres.jsp">Pesebres</a></li>
->>>>>>> upstream/main
                 </ul>
 
                 <!-- Usuario a la derecha -->
