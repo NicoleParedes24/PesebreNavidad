@@ -35,12 +35,9 @@
             <li class="nav-item"><a class="nav-link" href="personajes.jsp">Personajes</a></li>
             <li class="nav-item"><a class="nav-link" href="historia.jsp">Historia</a></li>
             <li class="nav-item"><a class="nav-link" href="eventos.jsp">Eventos</a></li>
-<<<<<<< HEAD
-=======
             <li class="nav-item"><a class="nav-link" href="juegoVR.jsp">Pesebre 3D</a></li>
             
             
->>>>>>> upstream/main
             <li class="nav-item"><a class="nav-link" href="votar.jsp">Apoya tu pesebre</a></li>
             <li class="nav-item"><a class="nav-link" href="escribirMensajes.jsp">Mensajes Navideños</a></li>
             <li class="nav-item"><a class="nav-link text-danger" href="cerrarSesion.jsp">Cerrar Sesión</a></li>
@@ -57,10 +54,6 @@
             <li class="nav-item"><a class="nav-link" href="bitacora.jsp">Bitácora</a></li>
             <li class="nav-item"><a class="nav-link" href="mensajesAdmin.jsp">Mensajes Navideños</a></li>
             <li class="nav-item"><a class="nav-link" href="adminPesebres.jsp">Pesebres</a></li>
-<<<<<<< HEAD
-            <li class="nav-item"><a class="nav-link" href="admin_Calendario.jsp">Administrar Calendario</a></li>
-=======
->>>>>>> upstream/main
             <li class="nav-item"><a class="nav-link text-danger " href="cerrarSesion.jsp">Cerrar Sesión</a></li>
 
         <% 
