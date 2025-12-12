@@ -36,6 +36,7 @@ public class Conexion
 		this.user="postgres";
 		this.pwd="1234";
 		this.cadena="jdbc:postgresql://localhost:5432/bd_pesebre";
+>>>>>>> upstream/main
 		this.con=this.crearConexion();	
 	}
 	

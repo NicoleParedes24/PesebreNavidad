@@ -1,0 +1,28 @@
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Java compilado
+*.class
+/build/
+/target/
+
+# Logs
+*.log
+logs/
+
+# Temporales
+*.tmp
+*.bak
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Otros IDEs
+.idea/
+*.iml
+.vscode/
