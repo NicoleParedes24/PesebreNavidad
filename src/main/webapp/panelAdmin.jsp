@@ -78,12 +78,13 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="mensajesAdmin.jsp">Mensajes Navideños</a>
                     </li>
-
+					<li class="nav-item"><a class="nav-link" href="adminPesebres.jsp">Pesebres</a></li>
+					<li class="nav-item"><a class="nav-link" href="admin_calendario.jsp">Administrar Calendario</a></li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="cerrarSesion.jsp">Cerrar Sesión</a>
                     </li>
 
-					<li class="nav-item"><a class="nav-link" href="adminPesebres.jsp">Pesebres</a></li>
+
                 </ul>
 
                 <!-- Usuario a la derecha -->
