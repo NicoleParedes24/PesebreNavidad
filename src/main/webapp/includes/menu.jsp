@@ -55,7 +55,11 @@
             <li class="nav-item"><a class="nav-link" href="bitacora.jsp">Bitácora</a></li>
             <li class="nav-item"><a class="nav-link" href="mensajesAdmin.jsp">Mensajes Navideños</a></li>
             <li class="nav-item"><a class="nav-link" href="adminPesebres.jsp">Pesebres</a></li>
+<<<<<<< HEAD
             <li class="nav-item"><a class="nav-link" href="juegos.jsp">Juegos</a></li>
+=======
+            <li class="nav-item"><a class="nav-link" href="admin_calendario.jsp">Calendario</a></li>
+>>>>>>> branch 'main' of https://github.com/NicoleParedes24/PesebreNavidad.git
             <li class="nav-item"><a class="nav-link text-danger " href="cerrarSesion.jsp">Cerrar Sesión</a></li>
 
         <% 
