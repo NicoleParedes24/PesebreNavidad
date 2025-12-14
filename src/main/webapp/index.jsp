@@ -30,6 +30,7 @@
     <a href="historia.jsp">Historia</a>
     <a href="eventos.jsp">Eventos</a>
     <a href="mensajes.jsp">Mensajes Navideños</a>
+    <a href="juegos.jsp">Juegos</a>
     <a href="registro.jsp">Registrarse</a>
     <a href="login.jsp">Iniciar Sesión</a>
 </div>
