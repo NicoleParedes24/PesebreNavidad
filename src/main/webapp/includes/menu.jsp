@@ -36,7 +36,7 @@
             <li class="nav-item"><a class="nav-link" href="personajes.jsp">Personajes</a></li>
             <li class="nav-item"><a class="nav-link" href="historia.jsp">Historia</a></li>
             <li class="nav-item"><a class="nav-link" href="eventos.jsp">Eventos</a></li>
-            <li class="nav-item"><a class="nav-link" href="juegoVR.jsp">Pesebre 3D</a></li>
+            <li class="nav-item"><a class="nav-link" href="juegoVR.jsp">Pesebre en Realidad Aumentada</a></li>
             
              <li class="nav-item"><a class="nav-link" href="juegos.jsp">Juegos</a></li>
             <li class="nav-item"><a class="nav-link" href="votar.jsp">Apoya tu pesebre</a></li>
