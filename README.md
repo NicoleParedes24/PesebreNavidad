@@ -1,4 +1,4 @@
-[README_PesebreNavidad.md](https://github.com/user-attachments/files/24248986/README_PesebreNavidad.md)# PesebreNavidad – Proyecto Interactivo Universitario
+# PesebreNavidad – Proyecto Interactivo Universitario
 
 ## 📌 Descripción del proyecto
 
