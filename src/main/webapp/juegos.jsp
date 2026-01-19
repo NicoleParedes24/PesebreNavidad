@@ -105,6 +105,7 @@
             <button class="tab-btn active" id="btn-p" onclick="cambiarJuego('puzzle')" style="background:#ffce00; border:none; padding:8px 12px; border-radius:10px;">Puzzle</button>
             <button class="tab-btn" id="btn-t" onclick="cambiarJuego('trineo')" style="background:rgba(255,255,255,0.2); color:white; border:none; padding:8px 12px; border-radius:10px;">Trineo</button>
             <button class="tab-btn" id="btn-l" onclick="cambiarJuego('laberinto')" style="background:rgba(255,255,255,0.2); color:white; border:none; padding:8px 12px; border-radius:10px;">Santa</button>
+            <button class="tab-btn" id="btn-m" onclick="cambiarJuego('memoria')" style="background:rgba(255,255,255,0.2); color:white; border:none; padding:8px 12px; border-radius:10px;">Memoria</button>
         </div>
 
         <div id="screen-puzzle" class="game-screen active">
@@ -122,6 +123,10 @@
             <div style="color:#ffce00; font-size:12px; margin-bottom:5px;">Desliza tu dedo para mover a Santa</div>
             <canvas id="labCanvas" width="450" height="450"></canvas>
             <button class="btn-accion" onclick="initLaberinto()">Nuevo Mapa</button>
+        </div>
+
+        <div id="screen-memoria" class="game-screen" style="width: 100%; max-width: 800px; height: 600px;">
+            <iframe src="juego-navidad.jsp" style="width: 100%; height: 100%; border: none; border-radius: 15px;"></iframe>
         </div>
     </div>
 
@@ -224,6 +229,32 @@
         }
 
         pImg.onload = initPuzzle;
+
+        function cambiarJuego(tipo) {
+            gameRunning = false;
+            document.querySelectorAll('.game-screen').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => { 
+                b.style.background = "rgba(255,255,255,0.2)"; 
+                b.style.color = "white"; 
+    });
+
+        // Resaltar el botón presionado
+        event.target.style.background = "#ffce00"; 
+        event.target.style.color = "black";
+
+        if(tipo === 'puzzle') {
+            document.getElementById('screen-puzzle').classList.add('active');
+            initPuzzle();
+            } else if(tipo === 'trineo') {
+                document.getElementById('screen-trineo').classList.add('active');
+                resetTrineoVariables();
+            } else if(tipo === 'laberinto') {
+                document.getElementById('screen-laberinto').classList.add('active');
+                initLaberinto();
+            } else if(tipo === 'memoria') { // NUEVO
+                document.getElementById('screen-memoria').classList.add('active');
+            }
+        }
     </script>
 </body>
 </html>
