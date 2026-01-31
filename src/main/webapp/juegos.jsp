@@ -126,7 +126,7 @@
         </div>
 
         <div id="screen-memoria" class="game-screen" style="width: 100%; max-width: 800px; height: 600px;">
-            <iframe src="juego-navidad.jsp" style="width: 100%; height: 100%; border: none; border-radius: 15px;"></iframe>
+    <iframe src="juego-navidad.jsp" style="width: 100%; height: 100%; border: none; border-radius: 15px;"></iframe>
         </div>
     </div>
 
@@ -138,17 +138,51 @@
     </div>
 
     <script>
-        function showPop(t, b) { document.getElementById('modal-title').innerText = t; document.getElementById('modal-body').innerText = b; document.getElementById('modal-overlay').style.display = 'block'; document.getElementById('custom-modal').style.display = 'block'; }
-        function closeModal() { document.getElementById('modal-overlay').style.display = 'none'; document.getElementById('custom-modal').style.display = 'none'; }
+        // Variables globales
+        let gameRunning = false;
+        const pImg = new Image(); pImg.src = 'img/puzzle.jpg';
+
+        function showPop(t, b) { 
+            document.getElementById('modal-title').innerText = t; 
+            document.getElementById('modal-body').innerText = b; 
+            document.getElementById('modal-overlay').style.display = 'block'; 
+            document.getElementById('custom-modal').style.display = 'block'; 
+        }
         
+        function closeModal() { 
+            document.getElementById('modal-overlay').style.display = 'none'; 
+            document.getElementById('custom-modal').style.display = 'none'; 
+        }
+
+        // FUNCIÓN CORREGIDA
         function cambiarJuego(tipo) {
-            gameRunning = false;
+            gameRunning = false; // Detiene juegos de canvas activos
+            
+            // Ocultar todas las pantallas
             document.querySelectorAll('.game-screen').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(b => { b.style.background = "rgba(255,255,255,0.2)"; b.style.color = "white"; });
-            event.target.style.background = "#ffce00"; event.target.style.color = "black";
-            if(tipo==='puzzle'){document.getElementById('screen-puzzle').classList.add('active');initPuzzle();}
-            else if(tipo==='trineo'){document.getElementById('screen-trineo').classList.add('active');resetTrineoVariables();}
-            else{document.getElementById('screen-laberinto').classList.add('active');initLaberinto();}
+            
+            // Resetear estilo de botones
+            document.querySelectorAll('.tab-btn').forEach(b => { 
+                b.style.background = "rgba(255,255,255,0.2)"; 
+                b.style.color = "white"; 
+            });
+
+            // Mostrar la pantalla seleccionada
+            const targetScreen = document.getElementById('screen-' + tipo);
+            if(targetScreen) targetScreen.classList.add('active');
+
+            // Resaltar el botón presionado (buscándolo por ID para evitar errores)
+            let btnId = 'btn-' + tipo.charAt(0);
+            const activeBtn = document.getElementById(btnId);
+            if(activeBtn) {
+                activeBtn.style.background = "#ffce00"; 
+                activeBtn.style.color = "black";
+            }
+
+            // Iniciar lógicas específicas
+            if(tipo === 'puzzle') initPuzzle();
+            else if(tipo === 'trineo') resetTrineoVariables();
+            else if(tipo === 'laberinto') initLaberinto();
         }
 
         // --- LÓGICA SWIPE LABERINTO ---
@@ -171,20 +205,19 @@
             let dx = endX - touchStartX;
             let dy = endY - touchStartY;
             let cell = grid[santa.y * 10 + santa.x];
-
             if (Math.abs(dx) > Math.abs(dy)) {
-                if (dx > 30 && !cell.walls[1]) santa.x++; // Derecha
-                else if (dx < -30 && !cell.walls[3]) santa.x--; // Izquierda
+                if (dx > 30 && !cell.walls[1]) santa.x++; 
+                else if (dx < -30 && !cell.walls[3]) santa.x--; 
             } else {
-                if (dy > 30 && !cell.walls[2]) santa.y++; // Abajo
-                else if (dy < -30 && !cell.walls[0]) santa.y--; // Arriba
+                if (dy > 30 && !cell.walls[2]) santa.y++; 
+                else if (dy < -30 && !cell.walls[0]) santa.y--; 
             }
             drawMaze();
             if(santa.x === 9 && santa.y === 9) { showPop("¡Bien!", "Llegaste a la meta."); initLaberinto(); }
         }
 
-        // --- RESTO DE LÓGICA (Simplificada) ---
-        const pCanvas = document.getElementById('puzzleCanvas'), pCtx = pCanvas.getContext('2d'), pImg = new Image(); pImg.src = 'img/puzzle.jpg';
+        // --- PUZZLE ---
+        const pCanvas = document.getElementById('puzzleCanvas'), pCtx = pCanvas.getContext('2d');
         let pieces = [], empty = {x:2, y:2};
         function initPuzzle() { pieces = []; for(let y=0; y<3; y++) for(let x=0; x<3; x++) pieces.push({ox:x, oy:y, cx:x, cy:y}); drawPuzzle(); }
         function drawPuzzle() {
@@ -197,8 +230,9 @@
         function shufflePuzzle() { for(let i=0; i<30; i++) { let m = [{x:empty.x-1,y:empty.y},{x:empty.x+1,y:empty.y},{x:empty.x,y:empty.y-1},{x:empty.x,y:empty.y+1}].filter(p => p.x>=0 && p.x<3 && p.y>=0 && p.y<3); let move = m[Math.floor(Math.random()*m.length)]; let p = pieces.find(p => p.cx === move.x && p.cy === move.y); p.cx = empty.x; p.cy = empty.y; empty = move; } drawPuzzle(); }
         pCanvas.onclick = (e) => { let r=pCanvas.getBoundingClientRect(); let x=Math.floor((e.clientX-r.left)/(r.width/3)), y=Math.floor((e.clientY-r.top)/(r.height/3)); if(Math.abs(x-empty.x)+Math.abs(y-empty.y)===1){ let p=pieces.find(p=>p.cx===x&&p.cy===y); p.cx=empty.x; p.cy=empty.y; empty={x,y}; drawPuzzle(); } };
 
+        // --- TRINEO ---
         const tCanvas = document.getElementById('trineoCanvas'), tCtx = tCanvas.getContext('2d');
-        let score=0, lives=3, items=[], gameRunning=false, tX = 200;
+        let score=0, lives=3, items=[], tX = 200;
         function resetTrineoVariables() { score=0; lives=3; items=[]; document.getElementById('score').innerText=0; document.getElementById('hearts').innerText="❤️❤️❤️"; }
         tCanvas.ontouchmove = (e) => { let r=tCanvas.getBoundingClientRect(); tX=(e.touches[0].clientX-r.left)*(450/r.width)-30; e.preventDefault(); };
         function toggleTrineo() { gameRunning=true; resetTrineoVariables(); tLoop(); }
@@ -212,12 +246,18 @@
             requestAnimationFrame(tLoop);
         }
 
+        // --- LABERINTO ---
         function initLaberinto() {
             grid = []; santa = {x:0, y:0}; for(let j=0; j<10; j++) for(let i=0; i<10; i++) grid.push({i,j,walls:[true,true,true,true],v:false});
             let curr = grid[0]; curr.v=true; let stack=[];
             while(true){
                 let i=curr.i, j=curr.j, neighs = [];
-                [[i,j-1,0,2],[i+1,j,1,3],[i,j+1,2,0],[i-1,j,3,1]].forEach(m=>{ let n = grid[m[1]*10+m[0]]; if(m[0]>=0&&m[0]<10&&m[1]>=0&&m[1]<10&&!n.v) neighs.push({n,w1:m[2],w2:m[3]}); });
+                [[i,j-1,0,2],[i+1,j,1,3],[i,j+1,2,0],[i-1,j,3,1]].forEach(m=>{ 
+                    let idx = m[1]*10+m[0];
+                    if(m[0]>=0&&m[0]<10&&m[1]>=0&&m[1]<10){
+                        let n = grid[idx]; if(!n.v) neighs.push({n,w1:m[2],w2:m[3]});
+                    }
+                });
                 if(neighs.length>0){ let next = neighs[Math.floor(Math.random()*neighs.length)]; next.n.v=true; stack.push(curr); curr.walls[next.w1]=false; next.n.walls[next.w2]=false; curr=next.n; }
                 else if(stack.length>0) curr=stack.pop(); else break;
             } drawMaze();
@@ -229,32 +269,6 @@
         }
 
         pImg.onload = initPuzzle;
-
-        function cambiarJuego(tipo) {
-            gameRunning = false;
-            document.querySelectorAll('.game-screen').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(b => { 
-                b.style.background = "rgba(255,255,255,0.2)"; 
-                b.style.color = "white"; 
-    });
-
-        // Resaltar el botón presionado
-        event.target.style.background = "#ffce00"; 
-        event.target.style.color = "black";
-
-        if(tipo === 'puzzle') {
-            document.getElementById('screen-puzzle').classList.add('active');
-            initPuzzle();
-            } else if(tipo === 'trineo') {
-                document.getElementById('screen-trineo').classList.add('active');
-                resetTrineoVariables();
-            } else if(tipo === 'laberinto') {
-                document.getElementById('screen-laberinto').classList.add('active');
-                initLaberinto();
-            } else if(tipo === 'memoria') { // NUEVO
-                document.getElementById('screen-memoria').classList.add('active');
-            }
-        }
     </script>
 </body>
 </html>
