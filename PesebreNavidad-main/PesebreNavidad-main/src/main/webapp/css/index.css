@@ -1,0 +1,160 @@
+:root {
+    --gold: #ffce00;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cinzel', serif;
+    overflow-x: hidden;
+}
+
+/* FONDO */
+.seccion-fondo {
+    min-height: 100vh;
+    background: url("../img/f1.png") center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+/* MENÚ */
+.menu {
+    display: flex;
+    gap: 25px;
+    background: rgba(0,0,0,0.5);
+    padding: 15px;
+    width: 100%;
+    justify-content: center;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu-btn {
+    display: none;
+}
+
+/* TÍTULO */
+.titulo {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.titulo h1 {
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 60px;
+    text-shadow: 0 0 20px rgba(255,206,0,0.6);
+}
+
+/* CONTADOR */
+#contenedor-cuenta {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.caja-tiempo {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(145deg, #0a3b2a, #05261b);
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+/* CINTA */
+.caja-tiempo::before,
+.caja-tiempo::after {
+    content: "";
+    position: absolute;
+    background: #b81414;
+}
+
+.caja-tiempo::before {
+    width: 18px;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.caja-tiempo::after {
+    height: 18px;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* NÚMERO */
+.numero {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--gold);
+    z-index: 2;
+    text-shadow: 2px 2px 0 black, 0 0 15px rgba(255,206,0,0.8);
+}
+
+/* TEXTO */
+.texto {
+    font-size: 12px;
+    margin-top: 6px;
+    letter-spacing: 2px;
+    background: rgba(0,0,0,0.6);
+    padding: 4px 8px;
+    border-radius: 6px;
+    z-index: 2;
+}
+
+/* MENSAJE NAVIDAD */
+#mensaje-navidad {
+    display: none;
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 80px;
+    color: var(--gold);
+    margin-top: 40px;
+    text-shadow: 4px 4px 0 #8b0000;
+}
+
+/* IMAGEN */
+.contenedor-superior {
+    margin-top: auto;
+    margin-bottom: -40px;
+}
+
+.contenedor-superior img {
+    width: 90%;
+    max-width: 850px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+    }
+    .menu.show {
+        display: flex;
+    }
+    .menu-btn {
+        display: block;
+        margin: 15px;
+    }
+    .titulo h1 {
+        font-size: 38px;
+    }
+}
