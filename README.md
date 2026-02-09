@@ -95,6 +95,12 @@ Proyecto de uso académico y educativo, destinado a fines de aprendizaje, demost
 
 ---
 
-## 🔗 Enlace al repositorio
+## 🔗 Enlace al repositorio & IP
 
+REPOSITORIO DE GIT:
 https://github.com/NicoleParedes24/PesebreNavidad
+
+IP:
+http://172.17.42.229:8080/navidad/
+
+
